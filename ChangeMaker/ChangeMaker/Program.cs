@@ -30,85 +30,28 @@ namespace ChangeMaker
         static void ChangeMaker(double amount)
         {
             amount = Math.Round(amount, 2); // Quick input validation. Rounds to the nearest 10's position.
-            double originalAmount = amount; // For proper reporting during output phase.
+            int counter = 0;
 
-            int hundereds = 0;
-            int fifties = 0;
-            int twenties = 0;
-            int tens = 0;
-            int fives = 0;
-            int ones = 0;
-            int quarters = 0; //Each will be iterated as their respective ammount is subtracted off of the
-            int dimes = 0;    //total value of amount.
-            int nickles = 0;
-            int pennies = 0;
+            //These paralell arrays correspond to each other, so that the value -> label indexes correlate. 
+            double[] value = { 100, 50, 20, 10, 5, 1, .25, .10, .05, .01 };
+            string[] label = { "$100s", "$50s", "$20s", "$10s", "$5s", "$1s", "Quarters", "Dimes", "Nickles", "Pennies" };
 
-            while(amount >= 100) // Remove the given dollar value from amount, then iterate the correct variable.
+            //Write amount to console before we manipulate it.
+            Console.WriteLine("Amount: " + amount);
+
+            //For every value in our above arrays, subtract from the value until it is about to reach 0, iterating
+            //the counter every time.
+            for (int i = 0; i < value.Length; i++)
             {
-                amount -= 100;
-                hundereds++;
+                counter = 0;
+                while(Math.Round(amount, 2) >= Math.Round(value[i], 2))
+                {
+                    counter++; //Every counter iteration means 1 more of the currency that we are currently on.
+                    amount -= value[i];
+                }
+
+                Console.WriteLine("{0}: {1}", label[i], counter); //Print the info in the correct format.
             }
-
-            while(amount >= 50)
-            {
-                amount -= 50;
-                fifties++;
-            }
-
-            while(amount >= 20)
-            {
-                amount -= 20;
-                twenties++;
-            }
-
-            while(amount >= 10)
-            {
-                amount -= 10;
-                tens++;
-            }
-
-            while(amount >= 5)
-            {
-                amount -= 5;
-                fives++;
-            }
-
-            while(amount >= 1)
-            {
-                amount -= 1;
-                ones++;
-            }
-
-            while(amount >= .25) //Coin values - same principle.
-            {
-                amount -= .25;
-                quarters++;
-            }
-
-            while (amount >= .1) //Dimes
-            {
-                amount -= .1;
-                dimes++;
-            }
-
-            while (amount >= .05) //Nickles
-            {
-                amount -= .05;
-                nickles++;
-            }
-
-            while (Math.Round(amount, 2) > 0) //Pennies. Rounded again to fix bug that causes amount to be set to
-            {                                 //0.00000000000002 more than it should be.
-                amount -= .01;
-                pennies++;
-            }
-
-            //Output as per asignment requirements.
-
-            Console.WriteLine("Amount: {0}\n$100s: {1}\n$50s: {2}\n$20s: {3}\n$10s: {4}\n$5s: {5}\n$1s: {6}",
-                originalAmount, hundereds, fifties, twenties, tens, fives, ones);
-            Console.WriteLine("Quarters: {0}\nDimes: {1}\nNickles: {2}\nPennies: {3}",
-                quarters, dimes, nickles, pennies);
         }
     }
 }
