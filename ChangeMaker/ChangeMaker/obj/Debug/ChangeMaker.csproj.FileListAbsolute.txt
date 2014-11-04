@@ -1,1 +1,6 @@
 C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\bin\Debug\ChangeMaker.exe.config
+C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\obj\Debug\ChangeMaker.csprojResolveAssemblyReference.cache
+C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\bin\Debug\ChangeMaker.exe
+C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\bin\Debug\ChangeMaker.pdb
+C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\obj\Debug\ChangeMaker.exe
+C:\Users\Reid\Documents\GitHub\ChangeMaker\ChangeMaker\ChangeMaker\obj\Debug\ChangeMaker.pdb
